@@ -57,7 +57,6 @@ void doAuto()
 		break;
 
 	case SKILLS:
-		//clearTimer(T1);
 		moveForward(500, MAX_SPEED); // Move back to last tile
 		fireBall(true); // Fire ball, get top flag
 		leftSpin(400, MAX_SPEED); // Turn towards cap
@@ -72,9 +71,6 @@ void doAuto()
 		flipCap(500);
 		rightSpin(400, MAX_SPEED); // turn towards platform
 		park(false); // drive backwards onto platform
-
-		//writeDebugStreamLine("Your skills took %f\n", ((float)time1[T1]/1000));
-
 		break; // end of auto!
 
 	default:
