@@ -25,23 +25,28 @@ void doAuto()
 	switch(currentSelection)
 	{
 	case RED_FRONT:
-		moveBackward(500, MAX_SPEED);
+		moveBackward(400, MAX_SPEED);
 		fireBall(true);
 		moveBackward(2000, MAX_SPEED);
-		moveForward(1000, MAX_SPEED);
+		moveForward(2200, MAX_SPEED); //jake edited
+		rightSpin(385, MAX_SPEED);
+		moveBackward(2000, MAX_SPEED);//(2500, MAX_SPEED);
 		break;
 
 	case RED_BACK:
-		fireBall(true);
-		moveBackward(600, MAX_SPEED);
-		rightSpin(400, MAX_SPEED);
+		//fireBall(true);
+		moveForward(600, MAX_SPEED);
+		flipCap(500);
 		moveBackward(2500, MAX_SPEED);
 		break;
+
 	case BLUE_FRONT:
-		moveBackward(500, MAX_SPEED);
+		moveBackward(400, MAX_SPEED);
 		fireBall(true);
 		moveBackward(2000, MAX_SPEED);
-		moveForward(1000, MAX_SPEED);
+		moveForward(2200, MAX_SPEED); //jake edited
+		leftSpin(385, MAX_SPEED);
+		moveBackward(2000, MAX_SPEED);//(2500, MAX_SPEED);
 		break;
 
 	case BLUE_BACK:
