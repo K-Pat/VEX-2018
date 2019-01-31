@@ -40,7 +40,25 @@
 
 #include "Vex_Competition_Includes.c"
 
-int selectAutonomous = 0;
+
+
+int autoplace = -1;
+
+void pre_auton()
+
+{
+
+
+	bStopTasksBetweenModes = true;
+	while(bIfiRobotDisabled)
+	{
+		if(SensorValue[auton1]== 1)autoplace = 0; // RED AUTONOMOUS
+			if(SensorValue[auton2]== 1)autoplace = 1; // BLUEAUTONOMOUS
+			if(SensorValue[auton3]== 1)autoplace = 2; //skillsautonomous
+
+	}
+}
+
 
 void stop_Robot()
 
@@ -55,9 +73,11 @@ void stop_Robot()
 	motor[arm2] = 0;
 	motor[arm1top] = 0;
 	motor[arm2top] = 0;
+
+
+
+
 }
-
-
 void forward()
 
 {
@@ -69,234 +89,205 @@ void forward()
 
 }
 
+void blueAuton(){
+	// go backwards go forward turnright flipdown go forwards flip upwards stop robot
 
-
-
-void pre_auton(){
-	if (SensorValue[auton1])
-	{
-		selectAutonomous = 1;
-	}
-	else if (SensorValue[auton2])
-	{
-		selectAutonomous = 2;
-	}
-	else if (SensorValue[auton3])
-	{
-		selectAutonomous = 3;
-		}else {
-		selectAutonomous = 0;
-	}
+	// backward for 2 seconds
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	motor[frontleftmotor] = -127;
+	motor[backleftmotor] = -127;
+	wait1Msec(2000);
+	stop_Robot();
+	// forward for 2 seconds
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	wait1Msec(2000);
+	stop_Robot();
+	// turn right for 1.52 secoonds
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	wait1Msec(1300);
+	stop_Robot();
+	//flip downwards for .75 seconds
+	motor[fliptable] = -127;
+	wait1Msec(750);
+	stop_Robot();
+	// forward for 1.6 seconds
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backrightmotor] = 127;
+	wait1Msec(1600);
+	stop_Robot();
+	// flip upwards for .75 seconds
+	motor[fliptable] = 127;
+	wait1Msec(750);
+	stop_Robot();
 }
 
-task autonomous(){
+void redAuton() {
+	// go backwards go forward turnright flipdown go forwards flip upwards stop robot
 
-	if (selectAutonomous == 1)
-	{
-		// blue auton
+	// backward for 2 seconds
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	motor[frontleftmotor] = -127;
+	motor[backleftmotor] = -127;
+	wait1Msec(2000);
+	stop_Robot();
+	// forward for 2 seconds
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	wait1Msec(2000);
+	stop_Robot();
+	// turn left for 1.52 secoonds
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = -127;
+	motor[backleftmotor] = -127;
+	wait1Msec(1300);
+	stop_Robot();
+	//flip downwards for .75 seconds
+	motor[fliptable] = -127;
+	wait1Msec(750);
+	stop_Robot();
+	// forward for 1.6 seconds
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backrightmotor] = 127;
+	wait1Msec(1600);
+	stop_Robot();
+	// flip upwards for .75 seconds
+	motor[fliptable] = 127;
+	wait1Msec(750);
+	stop_Robot();
+}
 
-		// go backwards go forward turnright flipdown go forwards flip upwards stop robot
-
-		// backward for 2 seconds
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		motor[frontleftmotor] = -127;
-		motor[backleftmotor] = -127;
-		wait1Msec(2000);
-		stop_Robot();
-		// forward for 2 seconds
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		wait1Msec(2000);
-		stop_Robot();
-		// turn right for 1.52 secoonds
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		wait1Msec(1300);
-		stop_Robot();
-		//flip downwards for .75 seconds
-		motor[fliptable] = -127;
-		wait1Msec(750);
-		stop_Robot();
-		// forward for 1.6 seconds
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backrightmotor] = 127;
-		wait1Msec(1600);
-		stop_Robot();
-		// flip upwards for .75 seconds
-		motor[fliptable] = 127;
-		wait1Msec(750);
-		stop_Robot();
-	}
-	if (selectAutonomous == 2)
-	{
-
-		// red auton
-		// go backwards go forward turnright flipdown go forwards flip upwards stop robot
-
-		// backward for 2 seconds
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		motor[frontleftmotor] = -127;
-		motor[backleftmotor] = -127;
-		wait1Msec(2000);
-		stop_Robot();
-		// forward for 2 seconds
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		wait1Msec(2000);
-		stop_Robot();
-		// turn left for 1.52 secoonds
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = -127;
-		motor[backleftmotor] = -127;
-		wait1Msec(1300);
-		stop_Robot();
-		//flip downwards for .75 seconds
-		motor[fliptable] = -127;
-		wait1Msec(750);
-		stop_Robot();
-		// forward for 1.6 seconds
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backrightmotor] = 127;
-		wait1Msec(1600);
-		stop_Robot();
-		// flip upwards for .75 seconds
-		motor[fliptable] = 127;
-		wait1Msec(750);
-		stop_Robot();
-	}
-	if (selectAutonomous == 3)
-		// skills auton
-	{
-		// go backwards go forward turn right go forward turn left gobackwards turn left flip cap turn around go forward
-		//pickup cap turn right go forward turn left go forward stackcap
-		//go bcakwards for 2 seconds
-		motor[frontrightmotor] = -127;
-		motor[frontleftmotor] = -127;
-		motor[backrightmotor] = -127;
-		motor[backleftmotor] = - 127;
-		wait1Msec(2000);
-		stop_Robot();
-		// go forward for 1 second
-		motor[frontrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[backleftmotor] = 127;
-		wait1Msec(1000);
-		stop_Robot();
-		// turn left
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] =  -127;
-		motor[ backrightmotor] = -127;
-		wait1Msec(500);
-		stop_Robot();
-		// go forwards for 2 seconds
-		motor[frontrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[backleftmotor] = 127;
-		wait1Msec(2000);
-		// turn left
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		wait1Msec(500);
-		// go frowards for .2 seconds
-		motor[frontrightmotor] = 127;
-		motor[frontleftmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[backleftmotor] = 127;
-		wait1Msec(200);
-		// go backwards
-		motor[frontrightmotor] = -127;
-		motor[frontleftmotor] = -127;
-		motor[backleftmotor] = -127;
-		motor[backrightmotor] = -127;
-		wait1Msec(400);
-		stop_Robot ();
-		// turn left
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		wait1Msec(500);
-		stop_Robot();
-		// go forwards
-		forward();
-		wait1Msec(400);
-		stop_Robot();
-		// flip cap go forward
-		motor[fliptable] = -127;
-		forward();
-		wait1Msec(200);
-		stop_Robot();
-		// turn around
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		wait1Msec(500);
-		stop_Robot();
-		// go forward
-		forward();
-		wait1Msec(500);
-		stop_Robot();
-		// pick up cap
-		motor[fliptable] = 127;
-		wait1Msec(400);
-		stop_Robot();
-		forward();
-		wait1Msec(100);
-		stop_Robot();
-		motor[fliptable] = -127;
-		wait1Msec(400);
-		stop_Robot();
-		// turn right
-		motor[frontrightmotor] = 127;
-		motor[backrightmotor] = 127;
-		motor[frontleftmotor] = -127;
-		motor[backleftmotor] = -127;
-		wait1Msec(500);
-		stop_Robot();
-		//forward
-		forward();
-		wait1Msec(1000);
-		stop_Robot();
-		//turn left
-		motor[frontleftmotor] = 127;
-		motor[backleftmotor] = 127;
-		motor[frontrightmotor] = -127;
-		motor[backrightmotor] = -127;
-		//raise arm
-		motor[arm1] = 127;
-		motor[arm1top] = 127;
-		motor[arm2] = 127;
-		motor[arm2top] = 127;
-		wait1Msec(1000);
-		stop_Robot();
-		//froward
-		forward();
-		wait1Msec(200);
-		stop_Robot();
-		// lower cap
-		motor[fliptable] = 127;
-		wait1Msec(100);
-		stop_Robot();
-	}
+void skillsAuton() {
+	// go backwards go forward turn right go forward turn left gobackwards turn left flip cap turn around go forward
+	//pickup cap turn right go forward turn left go forward stackcap
+	//go bcakwards for 2 seconds
+	motor[frontrightmotor] = -127;
+	motor[frontleftmotor] = -127;
+	motor[backrightmotor] = -127;
+	motor[backleftmotor] = - 127;
+	wait1Msec(2000);
+	stop_Robot();
+	// go forward for 1 second
+	motor[frontrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[backleftmotor] = 127;
+	wait1Msec(1000);
+	stop_Robot();
+	// turn left
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] =  -127;
+	motor[ backrightmotor] = -127;
+	wait1Msec(500);
+	stop_Robot();
+	// go forwards for 2 seconds
+	motor[frontrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[backleftmotor] = 127;
+	wait1Msec(2000);
+	// turn left
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	wait1Msec(500);
+	// go frowards for .2 seconds
+	motor[frontrightmotor] = 127;
+	motor[frontleftmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[backleftmotor] = 127;
+	wait1Msec(200);
+	// go backwards
+	motor[frontrightmotor] = -127;
+	motor[frontleftmotor] = -127;
+	motor[backleftmotor] = -127;
+	motor[backrightmotor] = -127;
+	wait1Msec(400);
+	stop_Robot ();
+	// turn left
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	wait1Msec(500);
+	stop_Robot();
+	// go forwards
+	forward();
+	wait1Msec(400);
+	stop_Robot();
+	// flip cap go forward
+	motor[fliptable] = -127;
+	forward();
+	wait1Msec(200);
+	stop_Robot();
+	// turn around
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	wait1Msec(500);
+	stop_Robot();
+	// go forward
+	forward();
+	wait1Msec(500);
+	stop_Robot();
+	// pick up cap
+	motor[fliptable] = 127;
+	wait1Msec(400);
+	stop_Robot();
+	forward();
+	wait1Msec(100);
+	stop_Robot();
+	motor[fliptable] = -127;
+	wait1Msec(400);
+	stop_Robot();
+	// turn right
+	motor[frontrightmotor] = 127;
+	motor[backrightmotor] = 127;
+	motor[frontleftmotor] = -127;
+	motor[backleftmotor] = -127;
+	wait1Msec(500);
+	stop_Robot();
+	//forward
+	forward();
+	wait1Msec(1000);
+	stop_Robot();
+	//turn left
+	motor[frontleftmotor] = 127;
+	motor[backleftmotor] = 127;
+	motor[frontrightmotor] = -127;
+	motor[backrightmotor] = -127;
+	//raise arm
+	motor[arm1] = 127;
+	motor[arm1top] = 127;
+	motor[arm2] = 127;
+	motor[arm2top] = 127;
+	wait1Msec(1000);
+	stop_Robot();
+	//froward
+	forward();
+	wait1Msec(200);
+	stop_Robot();
+	// lower cap
+	motor[fliptable] = 127;
+	wait1Msec(100);
+	stop_Robot();
 
 
 
@@ -311,6 +302,22 @@ task autonomous(){
 
 
 
+task autonomous()
+{
+	switch(autoplace){
+	case 0:
+		redAuton();
+		break;
+	case 1:
+		blueAuton();
+		break;
+	case 2:
+		skillsAuton();
+		break;
+	default:
+		break;
+	}
+}
 
 task usercontrol()
 
