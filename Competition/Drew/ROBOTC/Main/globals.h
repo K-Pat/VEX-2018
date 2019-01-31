@@ -8,7 +8,7 @@
 #define NO_SPEED 0
 
 //	auto_functions.h
-float PISTON_LENGTH = 4500; //Time it takes for piston to fire
+float PISTON_LENGTH = 4600; //Time it takes for piston to fire
 
 typedef enum AUTO_SELECTION {
 	RED_FRONT,

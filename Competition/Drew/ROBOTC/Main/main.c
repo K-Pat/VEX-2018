@@ -1,4 +1,3 @@
-
 #pragma config(Motor,  port1,           dBackRight,    tmotorVex393_HBridge, openLoop, reversed)
 #pragma config(Motor,  port2,           piston,        tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port3,           dFrontLeft,    tmotorVex393_MC29, openLoop)
@@ -30,6 +29,7 @@ void pre_auton()
 		rightVeer(0, 0, 0);
 		leftVeer(0, 0, 0);
 		_skills_old();
+		_skills_old_thesequel();
 	}
 	while(bIfiRobotDisabled)
 		getInput();  // Get Input for auto selection

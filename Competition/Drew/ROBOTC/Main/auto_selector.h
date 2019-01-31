@@ -57,20 +57,11 @@ void doAuto()
 		break;
 
 	case SKILLS:
-		moveForward(500, MAX_SPEED); // Move back to last tile
-		fireBall(true); // Fire ball, get top flag
-		leftSpin(400, MAX_SPEED); // Turn towards cap
-		flipCap(500); // flip cap, hurr durr
-		flipCap(500);
-
-		leftSpin(400, MAX_SPEED); // Turn towards the group of caps
-		moveForward(500, MAX_SPEED);
-		leftSpin(400, MAX_SPEED);
-
-		flipCap(500); // bulldoze&flip those caps
-		flipCap(500);
-		rightSpin(400, MAX_SPEED); // turn towards platform
-		park(false); // drive backwards onto platform
+		fireBall(true);
+		moveBackward(750, MAX_SPEED);
+		rightSpin(460, 63); // Original: 400, MAX_SPEED
+		stopDrive(); // test
+		moveBackward(3300, MAX_SPEED); // Original: 2500, MAX_SPEED
 		break; // end of auto!
 
 	default:
