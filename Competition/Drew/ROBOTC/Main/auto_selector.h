@@ -61,7 +61,7 @@ void doAuto()
 		moveBackward(750, MAX_SPEED);
 		rightSpin(460, 63); // Original: 400, MAX_SPEED
 		stopDrive(); // test
-		moveBackward(3300, MAX_SPEED); // Original: 2500, MAX_SPEED
+		moveBackward(3400, MAX_SPEED); // Original: 2500, MAX_SPEED
 		break; // end of auto!
 
 	default:
