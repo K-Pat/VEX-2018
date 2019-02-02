@@ -60,7 +60,7 @@ void forward()
 	// go forward
 	motor[frontrightmotor] = 127;
 	motor[frontleftmotor] = 127;
-	motor[backrightmotor] = 127;\
+	motor[backrightmotor] = 127;
 	motor[backleftmotor] = 127;
 
 }

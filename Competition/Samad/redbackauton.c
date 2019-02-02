@@ -79,20 +79,23 @@ task autonomous(){
 	//turn,go forward, flip cap
 
 	motor[frontleftmotor] = 127;
-	motor[backleftmotor] = 127;
+	motor[backrightmotor] = 127;
 	motor[frontrightmotor] = -127;
-	motor[backrightmotor] = -127;
+	motor[backleftmotor] = -127;
 	wait1Msec(350);
 	stop_Robot();
+	// go forwards
 	forward();
-	wait1Msec(1000);
+	wait1Msec(700);
 	stop_Robot();
+	// fliptable go down
 	motor[fliptable] = -127;
-	wait1Msec(859);
+	wait1Msec(1600);
 	stop_Robot();
+	// flip cap while going forwards
 	motor[fliptable] = 127;
 	forward();
-	wait1Msec(1000);
+	wait1Msec(1750);
 	stop_Robot();
 }
 
