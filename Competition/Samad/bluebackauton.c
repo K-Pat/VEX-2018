@@ -1,6 +1,6 @@
-#pragma config(Motor,  port2,           frontrightmotor, tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port2,           frontrightmotor, tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port3,           frontleftmotor, tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port4,           backrightmotor, tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port4,           backrightmotor, tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port5,           backleftmotor, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           arm1,          tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port7,           arm2,          tmotorVex393_MC29, openLoop)
@@ -60,7 +60,7 @@ void forward()
 	// go forward
 	motor[frontrightmotor] = 127;
 	motor[frontleftmotor] = 127;
-	motor[backrightmotor] = 127;
+	motor[backrightmotor] = 127;\
 	motor[backleftmotor] = 127;
 
 }
@@ -68,52 +68,31 @@ void forward()
 
 
 
-void pre_auton(){
-
-}
+void pre_auton(){}
 
 
 task autonomous(){
-
-
-
-	// blue auton
-
-	// go backwards go forward turnright flipdown go forwards flip upwards stop robot
-
-	// backward for 2 seconds
-	motor[frontrightmotor] = -127;
-	motor[backrightmotor] = -127;
-	motor[frontleftmotor] = -127;
+	// turn right
+motor[frontleftmotor] = -127;
 	motor[backleftmotor] = -127;
-	wait1Msec(2000);
-	stop_Robot();
-	// forward for 2 seconds
-	forward();
-	wait1Msec(2000);
-	stop_Robot();
-	// turn right for 1.52 secoonds
-	motor[frontleftmotor] = 127;
-	motor[backleftmotor] = 127;
-	motor[frontrightmotor] = -127;
-	motor[backrightmotor] = -127;
-	wait1Msec(2000);
-	stop_Robot();
-	//flip downwards for .75 seconds
-	motor[fliptable] = -127;
-	wait1Msec(750);
-	stop_Robot();
-	// forward for 1.6 seconds
 	motor[frontrightmotor] = 127;
 	motor[backrightmotor] = 127;
-	motor[frontleftmotor] = 127;
-	motor[backrightmotor] = 127;
+	wait1Msec(350);
+	stop_Robot();
+	// go forwards
+	forward();
+	wait1Msec(700);
+	stop_Robot();
+	// fliptable go down
+	motor[fliptable] = -127;
 	wait1Msec(1600);
 	stop_Robot();
-	// flip upwards for .75 seconds
+	// flip cap while going forwards
 	motor[fliptable] = 127;
-	wait1Msec(750);
+	forward();
+	wait1Msec(1750);
 	stop_Robot();
+
 }
 
 
@@ -144,10 +123,10 @@ task usercontrol()
 	{
 
 
-		motor[backrightmotor]  = vexRT[Ch3];
 		motor[frontleftmotor]  = vexRT[Ch3];
+		motor[backleftmotor]  = vexRT[Ch3];
 		motor[frontrightmotor] = vexRT[Ch2];
-		motor[backleftmotor] = vexRT[Ch2];
+		motor[backrightmotor] = vexRT[Ch2];
 
 
 		motor[arm1] = vexRT[Ch2Xmtr2];
