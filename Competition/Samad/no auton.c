@@ -1,9 +1,6 @@
-#pragma config(Sensor, dgtl1,  auton1,         sensorTouch)
-#pragma config(Sensor, dgtl2,  auton2,         sensorTouch)
-#pragma config(Sensor, dgtl3,  auton3,         sensorTouch)
-#pragma config(Motor,  port2,           frontrightmotor, tmotorVex393_MC29, openLoop, reversed)
+#pragma config(Motor,  port2,           frontrightmotor, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           frontleftmotor, tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port4,           backrightmotor, tmotorVex393_MC29, openLoop, reversed)
+#pragma config(Motor,  port4,           backrightmotor, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port5,           backleftmotor, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           arm1,          tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port7,           arm2,          tmotorVex393_MC29, openLoop)
@@ -41,7 +38,6 @@
 #include "Vex_Competition_Includes.c"
 
 
-
 void stop_Robot()
 
 {
@@ -76,10 +72,14 @@ void pre_auton(){
 
 }
 
+
 task autonomous(){
 
 
-	}
+
+
+}
+
 
 
 
@@ -108,10 +108,10 @@ task usercontrol()
 	{
 
 
+		motor[backrightmotor]  = vexRT[Ch3];
 		motor[frontleftmotor]  = vexRT[Ch3];
-		motor[backleftmotor]  = vexRT[Ch3];
 		motor[frontrightmotor] = vexRT[Ch2];
-		motor[backrightmotor] = vexRT[Ch2];
+		motor[backleftmotor] = vexRT[Ch2];
 
 
 		motor[arm1] = vexRT[Ch2Xmtr2];

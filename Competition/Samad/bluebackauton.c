@@ -74,9 +74,9 @@ void pre_auton(){}
 task autonomous(){
 	// turn right
 motor[frontleftmotor] = -127;
-	motor[backleftmotor] = -127;
+	motor[backrightmotor] = -127;
 	motor[frontrightmotor] = 127;
-	motor[backrightmotor] = 127;
+	motor[backleftmotor] = 127;
 	wait1Msec(350);
 	stop_Robot();
 	// go forwards
@@ -123,10 +123,10 @@ task usercontrol()
 	{
 
 
+		motor[backrightmotor]  = vexRT[Ch3];
 		motor[frontleftmotor]  = vexRT[Ch3];
-		motor[backleftmotor]  = vexRT[Ch3];
 		motor[frontrightmotor] = vexRT[Ch2];
-		motor[backrightmotor] = vexRT[Ch2];
+		motor[backleftmotor] = vexRT[Ch2];
 
 
 		motor[arm1] = vexRT[Ch2Xmtr2];
@@ -137,6 +137,7 @@ task usercontrol()
 
 
 		motor[fliptable] = vexRT[Ch3Xmtr2];
+
 
 
 
