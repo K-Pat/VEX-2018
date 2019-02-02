@@ -127,34 +127,18 @@ task autonomous()
 {
 
 /*
-moveBackward (100, 1400); //BACKWARD 2 BOX TO FLAG
-stopRobot ();
-wait1Msec(500);
-moveForward(100, 2400);	//FORWARD 3 BOX TO MID
-stopRobot ();
-wait1Msec(500);
-turnRight(100,1100);	//TURN RIGHT 90 TO PLATFORM (RED ALLIANCE)
-//turnLeft(100,1100);	//TURN LEFT 90 TO PLATFORM (BLUE ALLIANCE)
-stopRobot ();
-wait1Msec(500);
-moveBackward(100, 2000);	//FORWARD 2 BOX ONTO PLATFORM
-stopRobot ();
-wait1Msec(500);
-//FIN
-*/
-
 //RED ALLIANCE
 //FRONT FACING FLAGS
-	moveBackward (100, 1500); //BACKWARD 2 BOX TO FLAG
+moveBackward (100, 1500); //BACKWARD 2 BOX TO FLAG
 stopRobot ();
 wait1Msec(500);
 moveForward (100, 800); //FORWARD 1 BOX
 stopRobot ();
 wait1Msec(500);
-turnLeft(100,800);	//TURN LEFT 90 TO DISK
+turnLeft(100,750);	//TURN LEFT 90 TO DISK
 stopRobot ();
 wait1Msec(500);
-moveForward (100,250); //FORWARD 1/4 BOX
+moveForward (100,160); //FORWARD 1/4 BOX
 stopRobot ();
 wait1Msec(500);
 liftArm (100,700); //LIFT 30 OR UNTIL FLIP
@@ -167,21 +151,22 @@ wait1Msec(500);
 moveBackward (100,100); //REVERSE OF 224
 stopRobot ();
 wait1Msec(500);
-turnLeft (100,850); //TURN 90 FRONT FACING FLAGS
+turnLeft (100,730); //TURN 90 FRONT FACING FLAGS
 stopRobot ();
 wait1Msec(500);
-moveBackward (100,1400); //BACKWARD 2 BOXES - TO MID
+moveBackward (100,1350); //BACKWARD 2 BOXES - TO MID
 stopRobot ();
 wait1Msec(500);
-turnLeft (100,800); //TURN 90 BACK FACING PLATFORMS
+turnLeft (100,750); //TURN 90 BACK FACING PLATFORMS
 stopRobot ();
 wait1Msec(500);
 moveBackward (100,1900); //BACKWARD 1 1/2 BOX FOR THE ALLIANCE PLATFORM
 stopRobot ();
 wait1Msec(500);
 //FIN
+*/
 
-/*
+
 //BLUE ALLIANCE
 moveBackward (100, 1500); //BACKWARD 2 BOX TO FLAG
 stopRobot ();
@@ -189,10 +174,10 @@ wait1Msec(500);
 moveForward (100, 800); //FORWARD 1 BOX
 stopRobot ();
 wait1Msec(500);
-turnRight(100,700);	//TURN LEFT 90 TO DISK
+turnRight(100,750);	//TURN LEFT 90 TO DISK
 stopRobot ();
 wait1Msec(500);
-moveForward (100,150); //FORWARD 1/4 BOX
+moveForward (100,160); //FORWARD 1/4 BOX
 stopRobot ();
 wait1Msec(500);
 liftArm (100,700); //LIFT 30 OR UNTIL FLIP
@@ -205,19 +190,21 @@ wait1Msec(500);
 moveBackward (100,100); //REVERSE OF 224
 stopRobot ();
 wait1Msec(500);
-turnRight (100,700); //TURN 90 FRONT FACING FLAGS
+turnRight (100,750); //TURN 90 FRONT FACING FLAGS
 stopRobot ();
 wait1Msec(500);
 moveBackward (100,1350); //BACKWARD 2 BOXES - TO MID
 stopRobot ();
 wait1Msec(500);
-turnRight (100,700); //TURN 90 BACK FACING PLATFORMS
+turnRight (100,750); //TURN 90 BACK FACING PLATFORMS
 stopRobot ();
 wait1Msec(500);
-moveBackward (100,1600); //BACKWARD 1 1/2 BOX FOR THE ALLIANCE PLATFORM
+moveBackward (100,2300); //BACKWARD 1 1/2 BOX FOR THE ALLIANCE PLATFORM
 stopRobot ();
 wait1Msec(500);
-*/
+//FIN
+
+
 }
 
 /*---------------------------------------------------------------------------*/
