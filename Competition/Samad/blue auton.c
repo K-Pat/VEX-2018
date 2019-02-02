@@ -144,10 +144,10 @@ task usercontrol()
 	{
 
 
+		motor[backrightmotor]  = vexRT[Ch3];
 		motor[frontleftmotor]  = vexRT[Ch3];
-		motor[backleftmotor]  = vexRT[Ch3];
 		motor[frontrightmotor] = vexRT[Ch2];
-		motor[backrightmotor] = vexRT[Ch2];
+		motor[backleftmotor] = vexRT[Ch2];
 
 
 		motor[arm1] = vexRT[Ch2Xmtr2];
